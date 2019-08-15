@@ -1,24 +1,20 @@
 package solution;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 
 public class Solver {
 	static final int caseN = 26;
 	TrieTree tree;
 	int [] input;
-	PrintWriter output;
-	public Solver(String dictionary , int [] input, String output) {
+
+	public Solver(URL dictionary , int [] input) {
 		this.tree = new TrieTree();
 		this.tree.build(dictionary);
 		this.input = input;
-		try{
-			this.output = new PrintWriter(new FileWriter(output));
-		}
-		catch(IOException e) {
-			 e.printStackTrace();
-		}
 	}
 	
 	public void anagram() {
@@ -28,14 +24,12 @@ public class Solver {
 		}
 		Node cur = tree.getRoot();
 		searchTree(cur , count , new StringBuilder());
-		output.close();
 	}
 	
 	private void searchTree(Node cur , int count , StringBuilder str) {
 		if(count == 0) {
 			if(cur.isEnd()) {
 				System.out.println(str.toString());
-				output.println(str.toString());;
 			}
 			else
 				return;

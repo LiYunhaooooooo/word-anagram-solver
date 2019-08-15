@@ -1,9 +1,15 @@
 package solution;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -13,6 +19,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		//Assume using default dictionary and accept inputs from command line
+		/*
 		Properties config = new Properties();
 		try{
 			config.load(new FileInputStream("config.properties"));
@@ -41,7 +48,29 @@ public class Main {
 	    }
 		Solver solver = new Solver(dictionary , input, out);
 		solver.anagram();
-		
+		*/
+
+		//read dictionary and input from url	
+	    try {
+	    	int [] input = new int[Constant.len];
+			URL dictionaryURL = new URL("https://raw.githubusercontent.com/LiYunhaooooooo/word-anagram-solver/master/resorce/words.txt");
+			URL inputURL = new URL("https://raw.githubusercontent.com/LiYunhaooooooo/word-anagram-solver/master/resorce/input.txt");
+	        Scanner sc = new Scanner(inputURL.openStream());
+	        while (sc.hasNext()) {
+	            for(char c : sc.next().toCharArray()) {
+					if('a' <= c && c <= 'z')
+						input[c - 'a']++;
+					else
+						input[c - 'A' + Constant.len / 2]++;
+	            }
+	        }
+	        sc.close();
+			Solver solver = new Solver(dictionaryURL , input);
+			solver.anagram();
+	    } 
+	    catch (IOException e) {
+	        e.printStackTrace();
+	    }
 	}
 
 }

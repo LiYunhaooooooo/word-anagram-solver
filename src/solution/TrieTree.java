@@ -2,6 +2,8 @@ package solution;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URL;
 import java.util.Scanner;
 
 
@@ -34,17 +36,16 @@ public class TrieTree {
 	}
 	
 	//build TrieTree
-	public void build(String dictionary) {
-		File file = new File(dictionary);
+	public void build(URL dictionary) {
 	    try {
-	        Scanner sc = new Scanner(file);
+	        Scanner sc = new Scanner(dictionary.openStream());
 	        while (sc.hasNextLine()) {
 	            String word = sc.nextLine();
 	            this.buildHelper(word);
 	        }
 	        sc.close();
 	    } 
-	    catch (FileNotFoundException e) {
+	    catch (IOException e) {
 	        e.printStackTrace();
 	    }
 	}
