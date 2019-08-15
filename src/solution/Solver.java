@@ -34,7 +34,7 @@ public class Solver {
 	private void searchTree(Node cur , int count , StringBuilder str) {
 		if(count == 0) {
 			if(cur.isEnd()) {
-				System.out.print(str.toString());
+				System.out.println(str.toString());
 				output.println(str.toString());;
 			}
 			else
