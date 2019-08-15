@@ -1,0 +1,16 @@
+an java application for word anagram 
+
+Usage:
+1.run application
+git clone https://github.com/LiYunhaooooooo/word-anagram-solver.git
+cd word-anagram-solver
+./runme.sh
+
+2.replace dictionary and input
+enter resource and replace words.txt with wanted dictionary file
+change value for dictionary in config.properties file
+
+enter resource and replace input.txt with wanted input file
+change value for input in config.properties file
+
+have fun
