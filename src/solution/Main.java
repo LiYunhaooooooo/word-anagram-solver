@@ -20,6 +20,9 @@ public class Main {
 	    catch (IOException e) {
 	        e.printStackTrace();
 	    }
+		loadConfig(config);
+	}
+	public static void loadConfig(Properties config) {
 		String dictionary = config.getProperty("dictionary");
 		String out = config.getProperty("output");
 		File inputFile = new File(config.getProperty("input"));
