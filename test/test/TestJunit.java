@@ -19,7 +19,11 @@ public class TestJunit {
    public void test1() {
 	   testHelper("./resorce/test/testConfig1.properties");
    }
-   
+   @Test
+   public void test2() {
+	   testHelper("./resorce/test/testConfig2.properties");
+   }
+
    public void testHelper(String configString) {
 		Properties config = new Properties();
 		try{

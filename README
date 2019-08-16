@@ -13,4 +13,13 @@ change value for dictionary in config.properties file
 enter resource and replace input.txt with wanted input file
 change value for input in config.properties file
 
+Idea:
+Build a tireTree for a dictionay 
+for input array set , search every character in tiretree by dfs
+if all the characters are used and the node in tireTree is an end , the corresponding word is added
+
+Test:
+the application is tested by Junit test
+more test case can be added into resorce/test
+
 have fun
